@@ -8,13 +8,13 @@ def iou(pred_boxes, true_boxes, format="corner"):
     ------------
     Parameters:
         pred_boxes: shape (N, 4)
-        contains N predicted boxes with their x,y,w,h values
+            contains N predicted boxes with their x,y,w,h values
 
         true_boxes: shape (N, 4)
-        contains the N actual boxes with their x,y,w,h values
+            contains the N actual boxes with their x,y,w,h values
 
         format: either "corner" or "center"
-        tells us which format the boxes are stored in
+            tells us which format the boxes are stored in
 
     -----------
     returns:

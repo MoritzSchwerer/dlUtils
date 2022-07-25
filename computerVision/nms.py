@@ -3,7 +3,30 @@ import torch
 from iou import iou
 
 def nms(predictions, iou_threshold, prob_threshold, format="corner"):
-    # predictions = [[1, 0.9, x1, y1, x2, y2]]
+    """
+    NMS: Non Max Suppression
+
+    -----------
+    Parameters:
+        predictions: list(c, p_o, x1, y1, x2, y2)
+            a list containing the class, the probability of there beeing
+            an object and the box corrdinates
+
+        iou_threshold: float
+            the threshold for removing a bounding box because it is
+            probably for the same object
+
+        prob_threshold: float
+            the threshold at which we consider the prediction
+
+        format: either "corner" or "center"
+            value is passed through to the iou function
+
+    --------
+    Returns:
+        nms_bboxes: list(c, p_o, x1, y1, x2, y2)
+            all the valid boxes after removing unlikely ones and duplicate ones
+    """
 
     assert type(predictions) == list
 
